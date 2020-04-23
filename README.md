@@ -4,12 +4,12 @@ GoBarber API
 
 ## Installation
 
-First you need to install NodeJS and Yarn or NPM
+First you need to install NodeJS and Yarn
 
-> $ npm install or yarn
+> $ yarn
 
 ## Usage
 
-> $ npm start or yarn start
+> $ yarn start or yarn dev
 
 Now api will listen on [http://localhost:3333](http://localhost:3333)
