@@ -14,6 +14,10 @@ First you need to install NodeJS, Yarn and PostgreSQL
 
 3. Export all env vars: GOBARBER_DB_HOST, GOBARBER_DB_USERNAME, GOBARBER_DB_PASSWORD, GOBARBER_DB_NAME.
 
+4. Migrate database.
+
+> $ yarn sequelize db:migrate
+
 ## Usage
 
 > $ yarn start or yarn dev
