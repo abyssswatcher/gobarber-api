@@ -5,9 +5,14 @@
   "license": "MIT",
   "scripts": {
     "dev": "nodemon src/server.js",
-    "start": "node src/server.js"
+    "dev:debug": "nodemon --inspect src/server.js",
+    "start": "sucrase-node src/server.js"
   },
   "dependencies": {
     "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.3",
+    "sucrase": "^3.13.0"
   }
 }
