@@ -7,7 +7,10 @@ GoBarber API
 First you need to install NodeJS, Yarn and PostgreSQL
 
 1. Install all dependencies.
-   1. > $ yarn
+
+   ```console
+   $ yarn
+   ```
 
 2. Create an empty database in postgres with name "gobarber".
 
@@ -19,10 +22,21 @@ First you need to install NodeJS, Yarn and PostgreSQL
    5. GOBARBER_JWT_SECRET_KEY: just an unique in the world and secure string, i recommend a hash of this string.
 
 4. Migrate database.
-   1. > $ yarn sequelize db:migrate
+
+   ```console
+   $ yarn sequelize db:migrate
+   ```
 
 ## Usage
 
-> $ yarn start or yarn dev
+```console
+$ yarn dev
+```
+
+or
+
+```console
+$ yarn start
+```
 
 Now api will listen on [http://localhost:3333](http://localhost:3333)
