@@ -7,16 +7,19 @@ GoBarber API
 First you need to install NodeJS, Yarn and PostgreSQL
 
 1. Install all dependencies.
+   1. > $ yarn
 
-> $ yarn
+2. Create an empty database in postgres with name "gobarber".
 
-2. Create an empty database in postgres with gobarber name.
-
-3. Export all env vars: GOBARBER_DB_HOST, GOBARBER_DB_USERNAME, GOBARBER_DB_PASSWORD, GOBARBER_DB_NAME.
+3. Export all env vars:
+   1. GOBARBER_DB_HOST: database host.
+   2. GOBARBER_DB_USERNAME: database authentication username.
+   3. GOBARBER_DB_PASSWORD: database authentication password.
+   4. GOBARBER_DB_NAME: database name, if you did follow step 2 will be "gobarber".
+   5. GOBARBER_JWT_SECRET_KEY: just an unique in the world and secure string, i recommend a hash of this string.
 
 4. Migrate database.
-
-> $ yarn sequelize db:migrate
+   1. > $ yarn sequelize db:migrate
 
 ## Usage
 
