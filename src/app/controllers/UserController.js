@@ -17,7 +17,9 @@ class UserController {
     const userExists = await User.findOne({ where: { email: req.body.email } });
 
     if (userExists) {
-      return res.status(400).json({ error: 'Email already exists, try another one.' });
+      return res
+        .status(400)
+        .json({ error: 'Email already exists, try another one.' });
     }
 
     const { id, name, email, provider } = await User.create(req.body);
@@ -26,7 +28,7 @@ class UserController {
       id,
       name,
       email,
-      provider
+      provider,
     });
   }
 
@@ -35,12 +37,14 @@ class UserController {
       name: Yup.string(),
       email: Yup.string().email(),
       oldPassword: Yup.string().min(6),
-      password: Yup.string().min(6).when('oldPassword', (oldPassword, field) =>
-        oldPassword ? field.required() : field
-      ),
+      password: Yup.string()
+        .min(6)
+        .when('oldPassword', (oldPassword, field) =>
+          oldPassword ? field.required() : field
+        ),
       passwordConfirmation: Yup.string().when('password', (password, field) =>
         password ? field.required().oneOf([Yup.ref('password')]) : field
-      )
+      ),
     });
 
     if (!(await schema.isValid(req.body))) {
@@ -51,11 +55,13 @@ class UserController {
 
     const user = await User.findByPk(req.userId);
 
-    if (email !== user.email ) {
+    if (email !== user.email) {
       const userExists = await User.findOne({ where: { email } });
 
       if (userExists) {
-        return res.status(400).json({ error: 'Email already exists, try another one.' });
+        return res
+          .status(400)
+          .json({ error: 'Email already exists, try another one.' });
       }
     }
 
@@ -65,12 +71,11 @@ class UserController {
 
     const { id, name, provider } = await user.update(req.body);
 
-
     return res.json({
       id,
       name,
       email,
-      provider
+      provider,
     });
   }
 }

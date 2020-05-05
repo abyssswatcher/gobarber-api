@@ -11,9 +11,7 @@ const routes = new Router();
 const upload = multer(multerConfig);
 
 routes.get('/', (req, res) => {
-  const routesSummary = [
-    '/users'
-  ]
+  const routesSummary = ['/users'];
 
   return res.json({ routes: routesSummary });
 });
@@ -31,6 +29,6 @@ routes.put('/users', UserController.update);
 // Uploads
 routes.post('/files', upload.single('file'), (req, res) => {
   return res.json({ ok: true });
-})
+});
 
 export default routes;

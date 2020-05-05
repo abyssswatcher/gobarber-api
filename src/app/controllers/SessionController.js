@@ -16,19 +16,20 @@ class SessionController {
     }
 
     const { email, password } = req.body;
-    
     const user = await User.findOne({ where: { email } });
 
     if (!user) {
       return res.status(401).json({ error: 'Credentials are incorrect.' });
     }
 
-    if(!(await user.checkPassword(password))) {
+    if (!(await user.checkPassword(password))) {
       return res.status(401).json({ error: 'Credentials are incorrect.' });
     }
 
     const { id, name } = user;
-    const jwtSign = jwt.sign({ id }, authConfig.jwtSecretKey, { expiresIn: authConfig.expiresIn });
+    const jwtSign = jwt.sign({ id }, authConfig.jwtSecretKey, {
+      expiresIn: authConfig.expiresIn,
+    });
 
     return res.json({
       user: {
