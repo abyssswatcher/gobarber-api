@@ -4,7 +4,7 @@ GoBarber API
 
 ## Installation
 
-First you need to install NodeJS, Yarn and PostgreSQL
+First of all you need to install NodeJS, Yarn, PostgreSQL and MongoDB
 
 1. Install all dependencies.
 
