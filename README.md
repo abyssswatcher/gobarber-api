@@ -32,13 +32,13 @@ First of all you need to install NodeJS, Yarn, PostgreSQL, MongoDB and Redis
 First you need to start dbs services (PostgreSQL, MongoDB and Redis).
 
 ```console
-$ yarn dev
+$ yarn queue
 ```
 
-or
+and
 
 ```console
-$ yarn start
+$ yarn dev
 ```
 
 Now api will listen on [http://localhost:3333](http://localhost:3333)
