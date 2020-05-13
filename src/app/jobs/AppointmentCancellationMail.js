@@ -1,4 +1,4 @@
-import { format } from 'date-fns';
+import { format, parseISO } from 'date-fns';
 import pt from 'date-fns/locale/pt';
 
 import Mail from '../../lib/Mail';
@@ -12,7 +12,7 @@ class AppointmentCancellationMail {
     const { appointment } = data;
 
     const appointmentDate = format(
-      appointment.date,
+      parseISO(appointment.date),
       "'dia' dd 'de' MMMM', às' H:mm'h'",
       { locale: pt }
     );
