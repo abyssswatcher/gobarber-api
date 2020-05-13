@@ -28,20 +28,18 @@ class Mail {
 
   configureTemplates() {
     const viewPath = resolve(__dirname, '..', 'app', 'views', 'emails');
+    const handlebarOptions = {
+      viewEngine: {
+        extname: '.hbs',
+        partialsDir: resolve(viewPath, 'partials'),
+        layoutsDir: resolve(viewPath, 'layouts'),
+        defaultLayout: 'default',
+      },
+      viewPath,
+      extName: '.hbs',
+    };
 
-    this.transporter.use(
-      'compile',
-      nodemailerhbs({
-        viewEgine: exphbs.create({
-          layoutsDir: resolve(viewPath, 'layouts'),
-          partialsDir: resolve(viewPath, 'partials'),
-          defaultLayout: 'default',
-          extname: '.hbs',
-        }),
-        viewPath,
-        extName: '.hbs',
-      })
-    );
+    this.transporter.use('compile', nodemailerhbs(handlebarOptions));
   }
 }
 
