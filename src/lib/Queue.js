@@ -1,4 +1,4 @@
-import Queue from 'bee-queue';
+import Bee from 'bee-queue';
 
 class Queue {
   constructor() {
