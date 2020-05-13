@@ -2,7 +2,6 @@ import { format } from 'date-fns';
 import pt from 'date-fns/locale/pt';
 
 import Mail from '../../lib/Mail';
-import Appointment from '../models/Appointment';
 
 class AppointmentCancellationMail {
   get key() {

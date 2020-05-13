@@ -6,7 +6,6 @@ import Appointment from '../models/Appointment';
 import User from '../models/User';
 import File from '../models/File';
 import Notification from '../schemas/Notification';
-import Mail from '../../lib/Mail';
 
 class AppointmentController {
   async index(req, res) {
