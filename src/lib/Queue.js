@@ -22,6 +22,10 @@ class Queue {
       };
     });
   }
+
+  add(queue, job) {
+    return this.queues[queue].bee.createJob(job).save();
+  }
 }
 
 export default new Queue();
