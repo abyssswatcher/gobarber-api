@@ -4,7 +4,7 @@ GoBarber API
 
 ## Installation
 
-First of all you need to install NodeJS, Yarn, PostgreSQL and MongoDB
+First of all you need to install NodeJS, Yarn, PostgreSQL, MongoDB and Redis
 
 1. Install all dependencies.
 
@@ -28,6 +28,8 @@ First of all you need to install NodeJS, Yarn, PostgreSQL and MongoDB
    ```
 
 ## Usage
+
+First you need to start dbs services (PostgreSQL, MongoDB and Redis).
 
 ```console
 $ yarn dev
