@@ -979,7 +979,7 @@ event-emitter@^0.3.5:
     d "1"
     es5-ext "~0.10.14"
 
-express-handlebars@^4.0.4:
+express-handlebars@^4.0.0, express-handlebars@^4.0.4:
   version "4.0.4"
   resolved "https://registry.yarnpkg.com/express-handlebars/-/express-handlebars-4.0.4.tgz#b42b6bc09f4c7fe35f4afbda7aedadd6c2527fae"
   integrity sha512-WxbQorVc7V9ORzp9YpG3fLAzrfIrKcScSezuFxTZRFJSx/P2f7QJ9ZyADV8cyPuomyzUxAJnw6t8dnriLfBNvg==
@@ -1982,6 +1982,13 @@ node-modules-regexp@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/node-modules-regexp/-/node-modules-regexp-1.0.0.tgz#8d9dbe28964a4ac5712e9131642107c71e90ec40"
   integrity sha1-jZ2+KJZKSsVxLpExZCEHxx6Q7EA=
+
+nodemailer-express-handlebars@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/nodemailer-express-handlebars/-/nodemailer-express-handlebars-4.0.0.tgz#8b832872cdc29464d44520c754f8978454286014"
+  integrity sha512-oUYl2D1AkFNwRe7RXt8iNTtmQGmI4Bt4PXRkE9lX891FHNNUB3I5yRDGL1WQPOujYIHH79uAvD3QzsBStG4SFA==
+  dependencies:
+    express-handlebars "^4.0.0"
 
 nodemailer@^6.4.6:
   version "6.4.6"
