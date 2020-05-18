@@ -36,7 +36,7 @@ class SessionController {
       return res.status(401).json({ error: 'Credentials are incorrect.' });
     }
 
-    const { id, name, avatar } = user;
+    const { id, name, avatar, provider } = user;
     const jwtSign = jwt.sign({ id }, authConfig.jwtSecretKey, {
       expiresIn: authConfig.expiresIn,
     });
@@ -46,6 +46,7 @@ class SessionController {
         id,
         name,
         email,
+        provider,
         avatar,
       },
       token: jwtSign,
