@@ -2,6 +2,7 @@ import jwt from 'jsonwebtoken';
 import * as Yup from 'yup';
 
 import User from '../models/User';
+import File from '../models/File';
 import authConfig from '../../config/auth';
 
 class SessionController {
@@ -16,7 +17,16 @@ class SessionController {
     }
 
     const { email, password } = req.body;
-    const user = await User.findOne({ where: { email } });
+    const user = await User.findOne({
+      where: { email },
+      include: [
+        {
+          model: File,
+          as: 'avatar',
+          attributes: ['id', 'path', 'url'],
+        },
+      ],
+    });
 
     if (!user) {
       return res.status(401).json({ error: 'Credentials are incorrect.' });
@@ -26,7 +36,7 @@ class SessionController {
       return res.status(401).json({ error: 'Credentials are incorrect.' });
     }
 
-    const { id, name } = user;
+    const { id, name, avatar } = user;
     const jwtSign = jwt.sign({ id }, authConfig.jwtSecretKey, {
       expiresIn: authConfig.expiresIn,
     });
@@ -36,6 +46,7 @@ class SessionController {
         id,
         name,
         email,
+        avatar,
       },
       token: jwtSign,
     });
