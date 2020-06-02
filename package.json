@@ -8,7 +8,7 @@
     "dev:debug": "nodemon --inspect src/server.js",
     "start": "sucrase-node src/server.js",
     "queue": "sucrase-node src/queue.js",
-    "test": "jest"
+    "test": "NODE_ENV=test jest"
   },
   "dependencies": {
     "@sentry/node": "5.15.5",

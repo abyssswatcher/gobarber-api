@@ -26,11 +26,7 @@ First of all you need to install NodeJS, Yarn, PostgreSQL, MongoDB and Redis
 
 First setup your test env:
 
-1. Create a .env.test file into root directory, use .env.example file for env vars keys.
-
-2. Replace all lines into #Database section for:
-   DB_DIALECT=sqlite
-   DB_STORAGE=./__tests__/database.sqlite
+1. Create a .env.test file into root directory, use .env.test.example file for env vars keys.
 
 Now run tests:
 
