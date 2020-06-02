@@ -28,6 +28,8 @@ First setup your test env:
 
 1. Create a .env.test file in root directory, use .env.example file for env vars keys.
 
+2. Replace all lines into #Database section for DB_DIALECT=sqlite.
+
 Now run tests:
 
 ```console
