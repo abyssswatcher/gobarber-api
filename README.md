@@ -26,9 +26,7 @@ First of all you need to install NodeJS, Yarn, PostgreSQL, MongoDB and Redis
 
 First setup your test env:
 
-1. Create an empty database in postgreSQL with name "gobarber_test".
-
-2. Create a .env.test file in root directory, use .env.example file for env vars keys.
+1. Create a .env.test file in root directory, use .env.example file for env vars keys.
 
 Now run tests:
 
