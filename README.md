@@ -14,7 +14,7 @@ First of all you need to install NodeJS, Yarn, PostgreSQL, MongoDB and Redis
 
 2. Create an empty database in postgreSQL with name "gobarber".
 
-3. Create a .env file in root directory, use .env.example file for env vars keys.
+3. Create a .env file into root directory, use .env.example file for env vars keys.
 
 4. Migrate database.
 
@@ -26,9 +26,11 @@ First of all you need to install NodeJS, Yarn, PostgreSQL, MongoDB and Redis
 
 First setup your test env:
 
-1. Create a .env.test file in root directory, use .env.example file for env vars keys.
+1. Create a .env.test file into root directory, use .env.example file for env vars keys.
 
-2. Replace all lines into #Database section for DB_DIALECT=sqlite.
+2. Replace all lines into #Database section for:
+   DB_DIALECT=sqlite
+   DB_STORAGE=./__tests__/database.sqlite
 
 Now run tests:
 
