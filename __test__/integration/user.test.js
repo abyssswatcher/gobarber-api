@@ -2,6 +2,7 @@ import request from 'supertest';
 
 import app from '../../src/app';
 import truncate from '../util/truncate';
+import User from '../../src/app/models/User';
 
 describe('User', () => {
   beforeEach(async () => {
@@ -36,5 +37,18 @@ describe('User', () => {
     expect(response.body.error).toEqual(
       'Email already exists, try another one.'
     );
+  });
+
+  it('should encrypt user password when new user is created', async () => {
+    const response = await request(app).post('/users').send({
+      name: 'Test User',
+      email: 'test@test.test',
+      password: 'passwordStrong!@#$ pindamonhagaba',
+    });
+
+    const user = await User.findByPk(response.id);
+    const isEncrypted = user.compareHash('passwordStrong!@#$ pindamonhagaba');
+
+    expect(isEncrypted).toBeTruthy();
   });
 });
