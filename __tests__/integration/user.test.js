@@ -1,9 +1,10 @@
+/* eslint-disable no-undef */
 import request from 'supertest';
+import bcrypt from 'bcryptjs';
 
 import app from '../../src/app';
 import factory from '../factories';
 import truncate from '../util/truncate';
-import User from '../../src/app/models/User';
 
 describe('User', () => {
   beforeEach(async () => {
@@ -19,8 +20,9 @@ describe('User', () => {
   });
 
   it('should not be able to register with duplicated email', async () => {
-    const user = await factory.create();
+    const user = await factory.attrs('User');
 
+    await request(app).post('/users').send(user);
     const response = await request(app).post('/users').send(user);
 
     expect(response.status).toBe(400);
@@ -31,11 +33,14 @@ describe('User', () => {
   });
 
   it('should encrypt user password when new user is created', async () => {
-    const user = await factory.create({
+    const user = await factory.create('User', {
       password: 'strongPassword!@#$ pindamonhagaba',
     });
 
-    const isEncrypted = user.compareHash('strongPassword!@#$ pindamonhagaba');
+    const isEncrypted = await bcrypt.compare(
+      'strongPassword!@#$ pindamonhagaba',
+      user.password_hash
+    );
 
     expect(isEncrypted).toBeTruthy();
   });

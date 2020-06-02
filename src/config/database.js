@@ -8,6 +8,7 @@ module.exports = {
   database: process.env.DB_NAME,
   storage: process.env.DB_STORAGE || '',
   port: process.env.DB_PORT,
+  logging: false,
   define: {
     timestamps: true,
     underscored: true,
