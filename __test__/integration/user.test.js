@@ -12,7 +12,7 @@ describe('User', () => {
     expect(response.body).toHaveProperty('id');
   });
 
-  it('should return email already exists error', async () => {
+  it('should not be able to register with duplicated email', async () => {
     await request(app).post('/users').send({
       name: 'Test User',
       email: 'test@test.test',
@@ -26,6 +26,7 @@ describe('User', () => {
     });
 
     expect(response.body).toHaveProperty('error');
+    expect(response.status).toBe(400);
     expect(response.body.error).toEqual(
       'Email already exists, try another one.'
     );
