@@ -45,7 +45,7 @@ $ yarn queue
 and
 
 ```console
-$ yarn dev.
+$ yarn dev
 ```
 
 Now api will listen on [http://localhost:3333](http://localhost:3333)
